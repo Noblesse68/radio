@@ -1,8 +1,14 @@
-radio.onReceivedNumber(function (receivedNumber) {
-	
+input.onButtonPressed(Button.A, function () {
+    radio.sendString("A")
 })
-radio.setGroup(7)
-basic.forever(function () {
-    radio.sendNumber(0)
-    radio.sendString("test")
+input.onButtonPressed(Button.AB, function () {
+    radio.sendString("")
 })
+radio.onReceivedString(function (receivedString) {
+    basic.showString(receivedString)
+})
+input.onButtonPressed(Button.B, function () {
+    radio.sendString("B")
+})
+radio.setTransmitPower(7)
+radio.setFrequencyBand(7)
